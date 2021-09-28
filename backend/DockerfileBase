@@ -1,0 +1,14 @@
+FROM python:3.7
+
+RUN apt-get update && apt-get install -y gdal-bin
+
+RUN mkdir /requirements
+RUN mkdir /travelfox
+
+WORKDIR /travelfox
+
+COPY requirements.txt /requirements/requirements.txt
+
+RUN pip install -r /requirements/requirements.txt
+
+# docker build . -f DockerfileBase -t travelfox

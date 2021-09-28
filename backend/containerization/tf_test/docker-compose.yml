@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  db:
+    image: kartoza/postgis:12.4
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - tf-db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:5
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - tf-redis-data:/data
+
+#  nginx:
+#    image: nginx:latest
+#    ports:
+#      - 80:80
+#    volumes:
+#      - ./nginx:/etc/nginx/conf.d
+#      - tf-static:/staticfiles
+#    depends_on:
+#      - web
+#
+#  web:
+#    build: ../../.
+#    image: travelfox
+#    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate && gunicorn --workers=4 --timeout 30 core.wsgi -b 0.0.0.0:8000 --reload"
+#    volumes:
+#      - tf-static:/planner/staticfiles
+#    ports:
+#      - 8000:8000
+#    depends_on:
+#      - redis
+
+volumes:
+  tf-db-data:
+  tf-redis-data:
+  tf-static:
