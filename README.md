@@ -16,6 +16,7 @@
 
 ### Admin Web
 ![](img/web1.jpg)
+![](img/web2.jpg)
 
 ### AWS
 ![](img/doc1.png)
