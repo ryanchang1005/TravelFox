@@ -15,8 +15,8 @@
 ![](img/android2.jpg)
 
 ### Admin Web
-![](img/web1.jpg)
-![](img/web2.jpg)
+![](img/web_1.jpg)
+![](img/web_2.jpg)
 
 ### AWS
 ![](img/doc1.png)
